@@ -25,6 +25,7 @@ from loss_functions.VAELoss import VAELoss
 def main(data_dir: str):
 
     DATA_DIR = Path(data_dir)
+    DATA_DIR.mkdir(parents = True, exist_ok = True)
     
     # Create training and testing dataset
     training_dataset = datasets.MNIST(root = DATA_DIR,
@@ -113,7 +114,6 @@ def main(data_dir: str):
 
 
     # Generate and display an artificial image with model
-
     z_dim = 20
     z = torch.rand(z_dim)
 
